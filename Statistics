@@ -1,0 +1,26 @@
+products = {}
+count_all_products = 0
+sum_all_quantities = 0
+
+while True:
+    data = input()
+    if data == "statistics":
+        break
+
+    product, quantity = data.split(": ")
+    quantity = int(quantity)
+
+    if product in products:
+        products[product] += quantity
+    else:
+        products[product] = quantity
+
+    count_all_products += 1
+    sum_all_quantities += quantity
+
+print("Products in stock:")
+for product, quantity in products.items():
+    print(f"- {product}: {quantity}")
+
+print(f"Total Products: {len(products)}")
+print(f"Total Quantity: {sum_all_quantities}")
